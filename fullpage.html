@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Sidebar with Toggle</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	
+	
+	
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+ 
+
+    <style>
+
+    #HeaderBreak{
+       border-radius:12px 2px 4px; 
+        /* border:1px solid black; */
+        /* border:0; */
+       /*  border-bottom-style:solid; */
+        /* border-bottom-color: black; */
+        /* box-shadow: 0px 1px 1px 0px black; */
+        padding:10px 0;
+        border: 1px solid transparent;
+        box-shadow: 0 6px 30px -17px rgba(0, 0, 0, 0.2);
+    }
+
+    .searchbox {
+        float: left;
+        <!-- width: 100%; -->
+        border: none;
+        margin-top: 4px;
+        background: none;
+        overflow: none;
+        display: block;
+        align-items: center;
+    }
+
+    .searchinput {
+        padding-left: 10px;
+        padding-right: 55px;
+        width: 70%;
+        height: 40px;
+        border-radius: 25px;
+        outline: none;
+        border: none;
+        
+        box-shadow: 0px 0px 1px 0px gray;
+    }
+
+        .searchinput:hover {
+            border: 1px solid silver;
+            box-shadow: 1px 2px 3px 2px silver;
+        }
+
+        .searchinput:focus {
+            border-radius: 10px;
+            background-color:none;
+        }
+
+        .searchinput.active {
+            border-radius: 10px;
+        }
+
+    .searchicon {
+        padding-right: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 24px;
+        color: gray;
+        background: none;
+        outline: none;
+        border: none;
+        padding: 3px;
+        font-size: 15px;
+        margin-bottom: 4px;
+        margin-left: -45px;
+        margin-right: 5px;
+    }
+
+    .closeicon {
+        padding-right: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 24px;
+        color: gray;
+        background: none;
+        outline: none;
+        border: none;
+        padding: 3px;
+        font-size: 15px;
+        margin-bottom: 4px;
+        margin-left: -85px;
+        margin-right: 5px;
+    }
+
+    .closeicon {
+        visibility: hidden;
+    }
+
+    .clsoeicon.active {
+        visibility: visible;
+    }
+
+
+    .menu {
+        width:70%;
+        padding:0;
+        margin-top:-10px;
+        float: left;
+        <!-- width: 100%; -->
+        border: none;
+       
+        background: none;
+        overflow: none;
+        display: block;
+        align-items: center;
+        display: block;
+    }
+
+    .menu li {
+        float:left;
+        list-style: none;
+        
+    }
+
+    .menu li a {
+        text-decoration:none;
+        margin-bottom: 10px;
+        margin-right: 4px;
+        border: none;
+        outline: none;
+    }
+    
+  /*   #myInput {
+        border-radius: 50px;
+        display: flex;
+        margin: 0;
+        padding-left: 10px;
+        font-size: 16px;
+        border: 2px solid black;
+        outline: none;
+        margin-bottom: 12px;
+    } */
+
+    #myUL {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        float:left;
+    }
+
+    #myUL li a {
+        border: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        font-size: 18px;
+        color: black;
+        display: block;
+    }
+
+    ol.breadcrumb {
+        list-style: none;
+    }
+
+    ol.breadcrumb li {
+        display: inline;
+        color: green;
+    }
+
+    ol.breadcrumb li + li:before {
+        padding: 3px;
+        color: black;
+        font-size: 10px;
+        content: ">";
+    }
+
+
+    .pagination {
+        float:left;
+       position:relative;
+        margin-top: 20px;
+    }
+
+    .pagination button {
+        font-size: 20px;
+        padding: 10px 12px;
+        margin: 0 5px;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        color: gray;
+        background-color: inherit;
+    }
+
+    .pagination button:hover {
+        background-color: ghostwhite;
+    }
+
+    .pagination button:disabled {
+        cursor: text;
+        color: black;
+        background-color: inherit;
+        border-bottom-style: solid;
+        border-bottom-color: blue;
+    }
+
+    .pagination button:last-child {
+        border: none;
+        outline: none;
+    }
+
+     
+    </style>
+
+
+<div class="container">
+    <div class="row" >
+        <div class="col-md-6 col-sm-12" >
+            
+            <div class="row" id="HeaderBreak">
+                <div class="searchbox">
+                    <input type="text" class="searchinput" id="myInput" onkeyup="myFunction()" placeholder="Search here....">
+                    <button type="submit" class="searchicon" style="border:none;outline:none;background-color:inherit;"><i class="fa fa-search" style="background-color:none;"></i></button>
+                    <button type="submit" class="closeicon" style="border:none;outline:none;background-color:inherit;"><i class="fa fa-close" style="background-color:none;"></i></button>
+
+                </div>
+            </div>
+
+
+            <div class="row mt-4">
+                <div class="menu">
+                    <ul>
+                        <li>
+                            <a>
+                                <button class="test1" value="Ajax" id="AJAX" style="border:none;outline:none;margin-bottom:20px;background-color:inherit;">
+                                    Ajax
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <button class="test2" value="Html" id="HTML" style="border:none;outline:none;margin-bottom:20px;background-color:inherit;">
+                                    Html
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <button class="test3" value="Java" id="JAVA" style="border:none;outline:none;margin-bottom:20px;background-color:inherit;">
+                                    Java
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <button class="test4" value="Sql" id="SQL" style="border:none;outline:none;margin-bottom:20px;background-color:inherit;">
+                                    Sql
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <button class="test5" value="Python" id="PYTHON" style="border:none;outline:none;margin-bottom:20px;background-color:inherit;">
+                                    Python
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <button class="test6" value="Javascript" id="JAVASCRIPT" style="border:none;outline:none;margin-bottom:20px;background-color:inherit;">
+                                    Javascript
+                                </button>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="row">
+                <p style=" padding-top:10px;padding-left:10px;">About <span id="countSearch"></span> results</p>
+            </div>
+            <div class="row">
+                <ul id="myUL">
+                    <!-- Product items will be dynamically inserted here -->
+                </ul>
+                <p class="breadcumb1" id="breadcumb1"></p>
+            </div>
+            <div class="row">
+                <div class="pagination" id="pagination">
+                    <!-- Pagination buttons will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12"></div>
+    </div>
+    <hr id="hr" />
+    <div class="row"></div>
+
+</div>
+
+
+<script>
+
+    
+    const products = [
+        { id: 1, name: "Ajax",breadcumb:"breadcumb1",description:"CSS means cascaded stylish sheet"},
+        { id: 2, name: "C#", breadcumb: "breadcumb2", description: "CSS means cascaded stylish sheet" },
+        { id: 3, name: "C++", breadcumb: "breadcumb3", description: "CSS means cascaded stylish sheet" },
+        { id: 4, name: "Ajax the beautiful process", breadcumb: "breadcumb4", description: "CSS means cascaded stylish sheet" },
+        { id: 5, name: "Java" },
+        { id: 6, name: "Javascript" },
+        { id: 7, name: "Javascript and ajax the beautiful process" },
+        { id: 8, name: "Mysql" },
+        { id: 9, name: "Mlm" },
+        { id: 10, name: "Php" },
+        { id: 11, name: "Ajax the beautiful process" },
+        { id: 12, name: "TLag" },
+        { id: 13, name: "Vlag" },
+        { id: 14, name: "sql" },
+        { id: 15, name: "Xml" },
+        { id: 16, name: "xml2" },
+        { id: 17, name: "mlt" },
+        { id: 18, name: "Xmlm" },
+        { id: 19, name: "Python" },
+       
+        // Add more products as needed
+    ];
+    
+    var totaldataName = [];
+    products.forEach(product => {
+
+        totaldataName.push(product.name);
+       
+    });
+
+    console.log(totaldataName);
+
+    var productDiv = [];
+    var produc = [];
+    var uldis = [];
+    var lidis = [];
+
+    const itemsPerPage = 4;
+    let currentPage = 1;
+  
+
+    function renderProducts(page) {
+
+        
+
+        const breads = document.getElementById('breadcumb1');
+        breads.innerHTML = '';
+        document.getElementById('myUL').innerHTML = '';
+
+        const data = [];
+        const bred = [];
+        const dred = [];
+        
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const pageProducts = products.slice(start, end);
+
+        
+       
+        pageProducts.forEach(product => {
+            
+            data.push(product.name);
+            bred.push(product.breadcumb);
+            dred.push(product.description);
+            });
+        
+        
+
+        for (var i = 0; i < data.length; i++) {
+
+            const conD = data[i].toLowerCase();
+
+            lidis[i] = $('<li class="animals">' + '<a href="#" class="anse' + i + '">' + data[i] + '</a>'
+                + '<ol class="breadcrumb" style="background:none;padding:0;margin:0;font-size:15px;">'
+                + '<li>' + "Home" + '</li>' + '<li>' + bred[i] + '</li>' + '<li>'
+                + conD + '</li>' +
+
+
+                '</ol>' + '<p style="font-size:15px;margin-bottom:6px;padding:0;">' + dred[i] + '</p>' + '</li>');
+           
+                $('#myUL').append(lidis[i]);
+
+            
+
+        }
+
+
+
+        renderPagination(page);
+    }
+
+    function renderPagination(currentPage) {
+        const paginationContainer = document.getElementById('pagination');
+        paginationContainer.innerHTML = '';
+
+        const totalPages = Math.ceil(products.length / itemsPerPage);
+
+        const prevButton = document.createElement('button');
+        prevButton.textContent = '<';
+        prevButton.disabled = currentPage === 1;
+        if (currentPage === 1 ) {
+            prevButton.style.display = "none";
+        }
+
+
+        prevButton.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderProducts(currentPage);
+            }
+        });
+        paginationContainer.appendChild(prevButton);
+
+        for (let i = 1; i <= totalPages; i++) {
+            const pageButton = document.createElement('button');
+            pageButton.textContent = i;
+            if (i === currentPage) {
+                pageButton.disabled = true;
+
+            }
+            pageButton.addEventListener('click', () => {
+                currentPage = i;
+                renderProducts(currentPage);
+            });
+            paginationContainer.appendChild(pageButton);
+        }
+
+        const nextButton = document.createElement('button');
+        nextButton.textContent = '>';
+        nextButton.disabled = currentPage === totalPages;
+        if (currentPage === totalPages) {
+            nextButton.style.display = "none";
+        }
+
+        nextButton.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderProducts(currentPage);
+            }
+        });
+        paginationContainer.appendChild(nextButton);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderProducts(currentPage);
+    });
+
+    const peril = [];
+    
+   
+
+    function myFunction() {
+
+       
+
+      
+
+        var input, filter, ul, li, a, i, txtValue,num=[],a1,paragraph=[],count=0,MatchedItemN=[];
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        var m;
+        var k = [];
+        var u=1;
+        let x = document.getElementsByClassName('animals');
+        var counts = 1;
+        
+
+        var textTosearch;
+        var pattern;
+
+       
+        for (i = 0; i < totaldataName.length; i++) {
+           
+            //true of false condition below
+            if (filter.includes(totaldataName[i].toUpperCase())) {
+
+                num.push(totaldataName[i].toUpperCase());
+                
+
+                const z = i + 1;
+                // console.log("position number:",z);
+                const y = Math.ceil(z / itemsPerPage);
+                //show page number
+                console.log("Page Number is", y);
+                //builds pagination and shows searchable page and item
+                renderProducts(y);
+
+
+            }
+
+            else {
+                $("#countSearch").val("");
+            }
+            
+        }
+        
+        
+        console.log(num);
+
+        
+        
+        //that shows search item in the beginning of page
+        for (var i = 0; i < x.length; i++) {
+
+            
+
+            a = x[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().includes(filter)) {
+               
+                x[i].style.display = "";
+                const kk = document.querySelector(".anse" + i);
+                kk.style.color = "blue";
+                kk.style.backgroundColor = "none";
+
+                const searched = document.getElementById("myInput").value;
+
+                const closeicon = document.querySelector('.closeicon');
+                closeicon.style.visibility = "visible";
+
+                if (searched == '') {
+                    //set the paragraph value to their default text
+                        a.innerHTML = a.textContent;
+                    const closeicon = document.querySelector('.closeicon');
+                    closeicon.style.visibility="hidden";
+
+                }
+                
+                if (searched.length > 2) {
+                    
+                    textTosearch = searched;
+                    textTosearch = textTosearch.replace(/[.*+?^${}(|[\]\\]/g, "\\$&");
+                    pattern = new RegExp(textTosearch, "gi");
+                    a.innerHTML = a.textContent.replace(pattern, '<mark class="markRes' + i + '">' + textTosearch + '</mark>');
+
+                    MatchedItemN.push(i);
+                    const mrk = document.querySelector(".markRes" + i);
+                    mrk.style.backgroundColor = "yellow";
+
+                }
+               
+            }
+            else {
+                x[i].style.display = "none";
+                
+                
+            }
+
+
+        }
+        console.log("Matched Items:",MatchedItemN);
+
+        
+        
+
+        for (var i = 1; i < 7; i++) {
+
+            const y = $('.test' + i).val().toUpperCase();
+            
+           
+            if (filter ==y ) {
+                
+                console.log("loop counter", i, y);
+               const k= document.querySelector('.test' + i);
+                
+                // k[i].classList.add('active');
+
+                k.style.backgroundColor = "inherit";
+                k.style.borderBottomStyle = "solid";
+                k.style.borderBottomColor = "blue";
+
+            }
+
+            else {
+
+               const k= document.querySelector('.test' + i);
+
+                k.style.backgroundColor = "inherit";
+                k.style.borderBottomStyle = "none";
+                k.style.borderBottomColor = "none";
+            }
+            
+        }
+        const formattedNumber = MatchedItemN.length.toLocaleString('en-US');
+        document.getElementById("countSearch").innerHTML = formattedNumber;
+
+
+    }
+
+
+    const closeicon = document.querySelector('.closeicon');
+
+    closeicon.onclick = function () {
+        $("#myInput").val("");
+        const closeicon = document.querySelector('.closeicon');
+        closeicon.style.visibility = "hidden";
+
+        const searchinput = document.querySelector(".searchinput");
+        searchinput.classList.add("active");
+        searchinput.focus();
+        myFunction();
+    }
+   
+</script>
+
+
+
+</body>
+</html>
