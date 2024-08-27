@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ko Html</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+
+<!-- body{ -->
+<!-- background-image:linear-gradient(to  right, lightblue, orange); -->
+<!-- height:100%; -->
+<!-- } -->
+
+#wrapper{
+		display:flex;
+		align-items: stretch;
+		width:100%;
+		height:100%;
+	}
+#sidebar-wrapper{
+		height:100%;
+		overflow-y:auto;
+		transition: all 0.3s;
+		position:fixed;
+		left:0;
+		
+		z-index:1;
+		min-width:200px;
+		max-width:200px;
+	}
+	
+#page-content-wrapper1 {
+	 width: 100%;
+	 margin-left:200px;
+	 transition: all 0.3s;
+}
+#wrapper.toggled #sidebar-wrapper {
+					margin-left: -250px;
+				}
+#wrapper.toggled #page-content-wrapper1 {
+margin-left: 0;
+}
+
+ /* Navigation bar / Top horizontal navigation bar */
+.header{width:100%;height:46px;top:0;bottom:0;left:0;color:white;
+ 
+ box-shadow:0px 6px 30px -17px rgba(0,0,0,0.3);
+
+ font-family: "Arial", sans-serif;
+ font-size:15px;
+ <!-- background-image:linear-gradient(to  bottom, lightblue, white); -->
+ z-index:1;
+}
+.menutoggle{float:left;font-size:24px;background:none;padding:none;margin-top:3px;margin-right:-4px;margin-left:4px;}
+
+.searchbox{border:none;outline:none;height:44px;padding:6px 10px;float:left; transition:all 0.3s;padding-right:20px;background:none;}
+.searchinput,.searchicon,.closicon{border:none;outline:none;background-color:none;weight:0;font-size:16px;height:34px;}
+.searchinput{box-shadow:0px 0px 1px rgba(0,0,0,0.6);border-radius:25px;padding-left:17px;padding-right:60px;}
+
+ .searchinput:focus {border-radius: 10px;background-color:none;box-shadow:0px 0px 3px rgba(0,0,0,0.8);}
+ 
+.searchinput:hover{box-shadow:0px 0px 3px rgba(0,0,0,0.8);}
+
+
+.searchicon{margin-left:-4px;background:none;}
+.closeicon{background:none;margin-left:-60px;} 
+
+
+
+.headerList a{padding:12px 8px;text-decoration:none;color:black; text-align:center;}
+
+.fa-caret-down{ padding-left:6px;margin-top:5px;}
+.myul li a:hover{color:black;background-color:#f2f3f4;}
+
+
+
+.navbart{float:left;}
+.navbart a{float:left;text-decoration:none;color:black;text-align:center;display:block;padding:8px 10px;margin:0;}
+
+.navbart a:hover{color:black;background-color:#ddd;background-image:linear-gradient(to  bottom, white, lightblue);}
+
+.dropdownt{float:left;padding:0;overflow:hidden;margin:0; background:none;}
+.dropbtnt{border:none;outline:none;padding:0;margin:0;text-align;left;padding:12px 16px 12px 8px;width:100%;background:none;}
+
+.dropdown-contentt{position:absolute;z-index:1;box-shadow:0px 0px 1px rgba(0,0,0,0.4);background-color:#f2f3f4;color:black;display:none;min-width:95px;padding:12px 12px;}
+
+.dropdown-contentt a{float:left;text-decoration:none;color:black;display:block;}
+
+.dropdownt:hover .dropbtnt {color:white;background-color: green;}
+
+.dropdownt:hover .dropdown-contentt {display: block;}
+
+
+.column-newst{float:left; min-width: 70px;}
+.column-newst a{float:none;text-decoration:none;display:block;text-align:left;}
+
+.column{float: left;min-width: 10%;padding: 0px 14px 18px 8px;min-height: 100px;}
+.column a{float: none;color: black;height:34px;padding: 8px 14px 8px 8px;text-decoration: none;display: block;text-align: left;}
+
+.column a:hover {background-color: #ddd;}
+.row{margin:0;padding:0;}
+.row:after{content:"";display:table;clear:both;}
+
+
+
+.navbartRightadm{float:right;}
+.navbartRightadm a{float:left;text-decoration:none;color:black;text-align:center;display:block;padding:8px 10px;margin:0;}
+
+.navbartRightadm a:hover{color:black;background-color:#ddd;background-image:linear-gradient(to  bottom, white, lightblue);}
+		
+ 
+
+ /* start of display search product */
+.main{font-size: 15px; 
+  padding: 0px 10px;margin-top:15px; background-image: linear-gradient(to bottom, white, #e7feff);min-width:500px;max-width:500px;box-shadow:0px 6px  30px -17px rgba(0,0,0,0.2); padding-left:12px 8px;}
+
+.menu{float:left;overflow:hidden;width:100%;position:absolute;top:46px;display:block;}
+
+.main{display:none;}
+ .main.active{display:block;}
+.closeicon {
+    visibility: hidden;
+}
+
+
+
+
+
+
+
+
+.MYuls{margin-top:30px;margin-left:10px;padding-left:22px;}
+
+.animal{float:none;list-style:none;margin:0;}
+
+.animal a{float:left;text-align:center;text-decoration:none;color:black;}
+.animal a:hover{color:black;background-image:linear-gradient(to bottom ,lightblue,white);}
+
+.para{float:left;display:block;margin-top:5px;padding:0;overflow:hidden;}
+
+ #myUL {list-style: none;margin: 0;float:left;margin-top:5px;margin-bottom:10px;}
+ #muUL li {padding:12px 8px;}
+ #myUL li a {border: none;outline: none;padding: 0;margin: 0;text-decoration: none;font-size: 18px;color: black;display: block;}
+
+ #toep {list-style: none;margin: 0;float:left;margin-top:5px;margin-bottom:10px;}
+ #toep li {padding:12px 8px;}
+ #toep li a {border: none;outline: none;padding: 0;margin: 0;text-decoration: none;font-size: 18px;color: black;display: block;}
+
+
+ ol.breadcrumb {list-style: none;}
+ ol.breadcrumb li {display: inline;color: green;}
+ ol.breadcrumb li + li:before {padding: 3px;color: black;font-size: 10px;content: ">";}
+ 
+ ol.breadcrumb2 {list-style: none;}
+ ol.breadcrumb2 li {display: inline;color: green;}
+ ol.breadcrumb2 li + li:before {padding: 3px;color: black;font-size: 10px;content: ">";}
+ 
+ /* start of pagination */
+.pagination {float:left;position:relative;margin-top: 20px;overflow:hidden;display:block;}
+.pagination button {font-size: 20px;padding: 10px 12px;margin: 0 5px;cursor: pointer;outline: none;border: none;color: gray;background: none;}
+
+.pagination button:hover {background-image:linear-gradient(to bottom ,lightblue,white);}
+.pagination button:disabled {cursor: text;color: black;background-color: inherit;border-bottom-style: solid;border-bottom-color: blue;}
+.pagination button:last-child {border: none;outline: none;} /* start of pagination */
+
+
+.pagination1 {float:left;position:relative;margin-top: 20px;overflow:hidden;display:block;}
+.pagination1 button {font-size: 20px;padding: 10px 12px;margin: 0 5px;cursor: pointer;outline: none;border: none;color: gray;background: none;}
+
+.pagination1 button:hover {background-image:linear-gradient(to bottom ,lightblue,white);}
+.pagination1 button:disabled {cursor: text;color: black;background-color: inherit;border-bottom-style: solid;border-bottom-color: blue;}
+.pagination1 button:last-child {border: none;outline: none;}
+
+
+.sidenav.active{display:none;}
+
+.sidemenuclose{margin-top:-6px;margin-bottom:20px;color:black;}
+.sidemenuclose1{display:block;margin-top:6px;margin-bottom:20px;color:black;}
+
+.closebtn1:hover{color:black;
+  background-image:linear-gradient(to  bottom, white, lightblue);}
+
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  color:black;
+  background-color:white;
+  box-shadow:0px 0px 30px -17px rgba(0,0,0,0.6);
+  overflow-x: hidden;
+  padding-top: 15px;
+  transition:all 0.3s;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color:black;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: white;
+  background-color:green;
+}
+
+.dropdown-btn:focus {
+  color: white;
+  background-color:green;
+}
+
+
+/* Main content */
+.main {
+
+  font-size: 15px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+
+.active {
+  background-image:linear-gradient(to  bottom, white, lightblue);
+  color: black;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  color:black;
+  background-color: white;
+  
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+#navbart-toggle{
+  display:none;
+  color:black;
+  background:none;
+  padding: 12px 8px;
+  margin-left:40px;
+  font-size: 15px;  
+  border: none;
+  outline: none;
+	 
+ }
+#navbart-toggle:hover{
+	color:black;
+	background-image:linear-gradient(to  bottom, lightblue, #ddd);
+}
+
+.navbart .sidemenuclose{
+display:none;
+}
+.menubart{display:none;}
+
+
+.searchbox{
+background-color:none;
+}
+.closeicon3{
+display:none;
+}
+
+
+
+/* Some media queries for responsiveness */
+@media(max-width: 812px) {
+
+.darkLight,.darkLight1,.darkLight2{
+visibility:hidden;
+}
+
+.searchbox{
+display:none;
+}
+.searchbox.active{
+				display:block;
+				margin-top:-48px;
+				margin-left:150px;
+				background-color:white;
+			  }
+.searchbox.active .searchinput {
+				width:60%;
+				background-color:white;
+			  }
+
+<!-- .searchbox.active .searchinput{ -->
+				<!-- display:block; -->
+			  <!-- }			   -->
+			  
+<!-- .main{ -->
+<!-- display:none; -->
+<!-- } -->
+
+.main.active{
+display:none;
+}
+.closeicon3.active{
+display:block;
+}
+
+#searchicon3.active{
+display:none;
+}
+
+
+
+
+.closeicon2 {
+    visibility: hidden;
+}
+
+.navbartRightadm{margin-top:-48px;float:right;}
+
+ #navbart-toggle{display:block;}
+ 
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+ 
+	
+.navbart{display:none;}
+
+.navbart.active .sidemenuclose{
+  display:block;
+}			 
+.navbart.active{ 
+  display:block;
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  overflow:auto;
+  z-index: 1;
+  top: 46px;
+  left: 200px;
+  padding:12px 0px;
+  color:black;
+  background-image:linear-gradient(to  bottom, white, lightblue);
+  box-shadow:0px 0px 30px -17px rgba(0,0,0,0.6);
+  overflow-x: hidden;
+  
+  transition:all 0.3s;
+  }	
+.navbart.active a{
+  text-decoration:none;
+  padding:8px 16px 8px 16px;
+  margin-left:4px;
+  width:240px;
+  float:none;
+  
+  display: block;
+  text-align: left;
+  }
+ .navbart.active a:hover{color:black;
+	background-image:linear-gradient(to  bottom, lightblue, #ddd);}
+
+  
+ .navbart.active .dropdownt{
+  float:none;
+  overflow:hidden;
+  padding:0;
+  margin:0;
+  background-color:none;
+  }
+  .navbart.active .dropbtnt{
+  width:100%;
+  text-align:left;
+  padding:12px 8px;
+  
+  overflow:hidden;
+  
+  margin:0;
+  background-color:none;
+  }
+  
+  .navbart.active .dropdown-contentt{
+	float:none;	  
+	margin:0;
+	padding:0;
+	width:100%;		 
+	position:relative;
+	overflow:none;	
+	box-shadow:0px 0px 1px rgba(0,0,0,0.4);
+	background-color:#f2f3f4;
+    z-index:1;	
+   }
+   .navbart.active .dropdown-contentt a{
+	text-decoration:none;
+	float:none;
+	color:black;	
+   }
+  
+.navbart.active .dropdownt .dropbtnt{
+  width:100%;
+  display: block;
+  text-align: left;
+}
+
+.navbart.active .dropdownt:hover .dropdown-contentt {display: none;}
+
+}
+ 
+ <!-- @media(max-width: 492px) { -->
+  <!-- #sidenav{display:none;} -->
+  <!-- #page-content-wrapper1 { -->
+	 <!-- width: 100%; -->
+	 <!-- margin-left:0; -->
+	 <!-- transition: all 0.3s; -->
+    <!-- } -->
+ <!-- } -->
+ 
+
+<!-- test -->
+
+.sidemenuclose1{display:none;}
+
+.menubart.active .sidemenuclose1{display:block;}
+
+
+			 
+.menubart.active{ 
+  display:block;
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  overflow:auto;
+  z-index: 1;
+  top: 47px;
+  <!-- left: 200px; -->
+  padding:12px 0px;
+  color:black;
+  background-image:linear-gradient(to  bottom, white, lightblue);
+  box-shadow:0px 0px 30px -17px rgba(0,0,0,0.6);
+  overflow-x: hidden;
+  
+  transition:all 0.3s;
+  }	
+.menubart.active a{
+  text-decoration:none;
+  padding:8px 16px 8px 16px;
+  margin-left:4px;
+  width:240px;
+  float:none;
+  
+  display: block;
+  text-align: left;
+  }
+.menubart.active a:hover{color:black;
+	background-image:linear-gradient(to  bottom, lightblue, #ddd);}
+
+  
+.menubart.active .dropdownt{
+  float:none;
+  overflow:hidden;
+  padding:0;
+  margin:0;
+  background-color:none;
+  }
+.menubart.active .dropbtnt{
+  width:100%;
+  text-align:left;
+  padding:12px 8px;
+  
+  overflow:hidden;
+  
+  margin:0;
+  background-color:none;
+  }
+  
+.menubart.active .dropdown-contentt{
+	float:none;	  
+	margin:0;
+	padding:0;
+	width:100%;		 
+	position:relative;
+	overflow:none;	
+	box-shadow:0px 0px 1px rgba(0,0,0,0.4);
+	background-color:#f2f3f4;
+    z-index:1;	
+   }
+.menubart.active .dropdown-contentt a{
+	text-decoration:none;
+	float:none;
+	color:black;	
+   }
+  
+.menubart.active .dropdownt .dropbtnt{
+  width:100%;
+  display: block;
+  text-align: left;
+}
+
+.menubart.active .dropdownt:hover .dropdown-contentt {display: none;}
+.caret{
+	width:0;
+	height:0;
+	position:absolute;
+	margin-top:9px;
+	margin-right:12px;
+	margin-left:2px;
+	border:5px solid;
+	border-color:black transparent transparent transparent;
+	transition: all 0.3s linear;
+}
+
+#navbart-toggle:focus{
+color:black;
+background-color:#f2f3f4;
+}
+
+#searchicon3{
+  position:absolute;
+  color:black;
+  background:none;
+ 
+  padding: 12px 12px;
+  margin-left:116px;
+  margin-top:-48px;
+  font-size: 15px;  
+  border: none;
+  outline: none;
+}
+#searchicon3:hover{
+background-image:linear-gradient(to  bottom, lightblue, #ddd);
+}
+
+.closeicon3{
+  position:absolute;
+  color:black;
+  background:none;
+ 
+  padding: 12px 12px;
+  margin-left:116px;
+  margin-top:-48px;
+  font-size: 15px;  
+  border: none;
+  outline: none;
+}
+
+.act{
+transform:rotate(180deg);
+}
+.caretN{
+	width:0;
+	height:0;
+	display:block;
+	margin-top:9px;
+    margin-right:3px;
+	float:right;
+	border:5px solid;
+	border-color:black transparent transparent transparent;
+	transition: all 0.3s linear;
+}
+.actN{
+transform:rotate(180deg);
+}
+
+.darkLight{
+display:block;
+width:22px;
+height:22px;
+margin-top:13px;
+border:2px solid black;
+border-radius:45px;
+float:left;
+}
+<!-- .darkLight:hover{ -->
+<!-- background-color:gray; -->
+
+<!-- } -->
+.darkLight1{
+display:block;
+background-color:gray;
+width:12px;
+height:22px;
+margin-top:13px;
+margin-left:-12px;
+border:2px solid black;
+border-radius:0px 45px 45px 0px;
+float:left;
+}
+
+
+
+.darkLight2{
+display:block;
+background-color:none;
+width:35px;
+height:35px;
+margin-top:6px;
+margin-left:-28px;
+border:none;
+border-radius:45px;
+float:left;
+pointer:cursor;
+
+}
+.darkLight2:hover {
+   border:9px solid #2f2e2e;
+}
+
+body.active{
+background-image:linear-gradient(to  right, #121212,#121212);
+
+}
+
+.actlm {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+
+
+
+.closebtn4:hover{
+ background-color:green;
+ color:white;
+}
+</style>
+
+<body>
+
+<div class="d-flex" id="wrapper">
+   <div id="sidebar-wrapper">
+    <div class="sidenav" id="sidenav">
+	
+		  <div class="sidemenuclose">
+			<span style="padding-left:10px;margin-left:3px;" class="moik" >Menu</span>
+			<button class="closebtn1" id="closeBtn1" style="outline:none;border:none;float:right;font-size:15px;margin-top:-7px;padding-right: 8px;" title="close">&#10006;</button>
+		  </div>
+		  
+		  <a href="#about" class="home">Home</a>
+		  
+		  <!-- <button class="dropdown-btn" id="dropdownbtn1" value="dropdownbtn1" style="outline:none;border:none;">HR  -->
+			<!-- <i class="fa fa-caret-down"></i> -->
+		  <!-- </button> -->
+		  <!-- <div class="dropdown-container"> -->
+			<!-- <a href="#">Link 1</a> -->
+			<!-- <a href="#">Link 2</a> -->
+			<!-- <a href="#">Link 3</a> -->
+		  <!-- </div> -->
+		  
+		  
+        </div>
+   </div>
+   
+   
+   <div id="page-content-wrapper1">
+ 
+     <div class="row">
+	   <div class="header">
+	      <button type="submit" class="menutoggle" id="menutoggle" style="border:none;outline:none;color:black;">&#9776;</button>
+	      
+		  <button type="submit" id="navbart-toggle" class="navbarttoggle" style="border:none;outline:none;">Menu <i class="fa fa-caret-down"></i></button>
+		  
+		  <div class="menubart" id="menubart">
+		  
+		    <div class="sidemenuclose1">
+				<span style="padding-left:20px;margin-top:40px;" >Menu</span>
+				<button class="closebtn3" id="closeBtn3" style="outline:none;border:none;float:right;font-size:15px;margin-top:-7px;padding-right: 8px;" title="close">&#10006;</button>
+			</div>
+			
+		  </div>
+		  
+		  <button type="submit" id="searchicon3"style="border:none;outline:none;color:black;"><i class="fa fa-search"></i></button>
+		  <button type="submit" id="closeicon3" class="closeicon3" style="border:none;outline:none;color:gray;">&#10006;</button>
+		  
+		  
+		  
+		  <div class="searchbox" style="background:none;">
+			<input type="text" id="myInput" class="searchinput" onkeyup="myFunction()" placeholder="Search here...." style="border:none;outline:none;color:gray;background:none;">
+			<button type="submit" id="closeicon" class="closeicon" style="border:none;outline:none;color:gray;background:none;">&#10006;</button>
+			<button type="submit" id="searchicon" class="searchicon" style="border:none;outline:none;color:gray"><i class="fa fa-search"></i></button>
+		  </div>
+		  
+		  <!-- start of circle for dark/light -->
+		  <div class="darkLight">
+		   		<button type="submit" style="border:none;outline:none;color:black;background:none;display:block;"></button>
+				
+		  </div>
+		  <div class="darkLight1">
+		   		<button type="submit" style="border:none;outline:none;color:black;background:none;display:block;"></button>
+				
+		  </div> 
+		  <div class="darkLight2">
+		   		<button type="submit" style="border:none;outline:none;color:black;background:none;display:block;" title="toggle Light/Dark Mode"></button>
+				
+		  </div>
+		  <!-- end of circle -->
+		  
+
+		  <div class="navbart" id="HeaderDropdown">
+			  <div class="sidemenuclose">
+				<span style="padding-left:20px;margin:0;" >Menu</span>
+				<button class="closebtn2" id="closeBtn2" style="outline:none;border:none;float:right;font-size:15px;margin-top:-7px;padding-right: 8px;" title="close">&#10006;</button>
+			  </div>
+			  <!-- postpro -->
+		 
+			  <!-- <div class="dropdownt"> -->
+				<!-- <button class="dropbtnt" id="ctrdropbtnt4" value="ctrdropbtnt4" style="border:none;outline:none;">Series<i class="fa fa-caret-down" style="float:right;"></i></button> -->
+				<!-- <div class="dropdown-contentt"> -->
+					<!-- <div class="row" id="rowtable"> -->
+					<!-- rowtable --> 
+					<!-- </div> -->
+				<!-- </div> -->
+			
+			  <!-- </div>  -->
+		    
+		  </div>
+		  <div class="navbartRightadm">
+		 
+		  <div class="dropdownt">
+				<button class="dropbtnt" style="border:none;outline:none;"> <i class="fa fa-bell"></i><i class="fa fa-caret-down"></i></button>
+				<div class="dropdown-contentt">
+					<div class="column-newst">
+					  <a href="#">admin</a>
+						  <a href="#">employee</a>
+						  <a href="#">controller</a>
+						  <a href="#">logout</a>
+					</div>
+				</div>
+		   </div> 
+		   
+		   
+		    <div class="dropdownt">
+				<button class="dropbtnt" style="border:none;outline:none;"><i class="fa fa-user-circle"></i> Admin<i class="fa fa-caret-down"></i></button>
+				<div class="dropdown-contentt" style="position:absolute;z-index:1;">
+					<div class="column-newst">
+					  <a href="#">admin</a>
+						  <a href="#">employee</a>
+						  <a href="#">controller</a>
+						  <a href="#">logout</a>
+					</div>
+				</div>
+		   </div> 
+		  </div>
+	   </div> 
+	  
+	   
+	 </div>
+	 
+	 
+	 <div class="row" id="searchBar" style="margin-top:-15px;">
+	  <div class="main">
+	    <div class="row">
+		   <button type="submit" class="closebtn4" id="closebtn4" style="outline:none;border:none;font-size:15px;margin-top:4px;padding-right: 8px;margin-left:95%;cursor:pointer;background-color:none;z-index:1;" title="close">&#10006;</button>
+        
+		</div>
+	    <div class="row mt-4">
+		 
+		 <div class="menu">
+		  <ul class="MYuls">
+		  <li class="animal"><a href="#"><button class="test1" value="Ajax" id="AJAX" style="border:none;outline:none;margin-bottom:10px;background:none;">
+           Ajax</button></a></li>
+		  <li class="animal"><a href="#"> <button class="test2" value="Html" id="HTML" style="border:none;outline:none;margin-bottom:10px;background:none;">
+			Html</button></a></li>
+		  <li class="animal"><a href="#"><button class="test3" value="Java" id="JAVA" style="border:none;outline:none;margin-bottom:10px;background:none;">
+			Java</button></a></li>
+		  <li class="animal"><a href="#"><button class="test4" value="Sql" id="SQL" style="border:none;outline:none;margin-bottom:10px;background:none;">
+			Sql</button></a></li>
+		  <li class="animal"><a href="#"> <button class="test5" value="Python" id="PYTHON" style="border:none;outline:none;margin-bottom:10px;background:none;">
+			Python</button></a></li>
+		  <li class="animal"><a href="#">  <button class="test6" value="Javascript" id="JAVASCRIPT" style="border:none;outline:none;margin-bottom:10px;background:none;">
+			Javascript</button></a></li>
+		  </ul>
+		 </div>
+		</div>
+		<div class="row mt-4">
+		  <p style="display:block;margin-left:12px;padding-left:24px;margin-top:20px;">About <span id="countSearch"></span> results</p>
+		</div>
+		<div class="row">
+		  <ul id="myUL" style="display:none;">
+		   <!--items will be dynamically inserted here -->
+		  </ul>
+		</div>
+		
+		<div class="row">
+			<div class="pagination" id="pagination" style="display:none;">
+				<!-- Pagination buttons will be dynamically inserted here -->
+			</div>
+		</div>
+		<div>
+		      <ul id="toep" style="display:none;">
+		         <!--items will be dynamically inserted here -->
+		      </ul>
+		</div>
+		<div class="row">
+		    <div id="data-view" style="margin-left:18px;padding-left:12px;"></div>
+			<div id="data-view2"></div>
+		   
+		</div>
+		<div class="row">
+		    <div id="data-view" style="margin-left:18px;padding-left:12px;"></div>
+			<div id="data-view2"></div>
+		    <div class="pagination1" id="pagination1">
+				
+			</div>
+		</div>
+		
+	   </div>
+	   
+	   
+	 </div>
+	 
+	</div>
+	 
+	 
+</div>
+
+</body>
+</html>
+
+<script>
+ const products = [
+     { id: 1, name: "Ajax",breadcumb:"breadcumb1",description:"CSS means cascaded stylish sheet"},
+     { id: 2, name: "C#", breadcumb: "breadcumb2", description: "CSS means cascaded stylish sheet" },
+     { id: 3, name: "C++", breadcumb: "breadcumb3", description: "CSS means cascaded stylish sheet" },
+     { id: 4, name: "Ajax the beautiful process", breadcumb: "breadcumb4", description: "CSS means cascaded stylish sheet" },
+     { id: 5, name: "Java" },
+     { id: 6, name: "Javascript" },
+     { id: 7, name: "Javascript and ajax the beautiful process" },
+     { id: 8, name: "java and javas" },
+     { id: 9, name: "java nat hight java" },
+     { id: 10, name: "javascript" },
+     { id: 11, name: "Ajax the beautiful process" },
+     { id: 12, name: "javascipt and human" },
+     { id: 13, name: "Vlag" },
+     { id: 14, name: "sql" },
+     { id: 15, name: "sql2" },
+     { id: 16, name: "xml2" },
+     { id: 17, name: "mlt" },
+     { id: 18, name: "ja java" },
+     { id: 19, name: "Python" },
+    
+     // Add more products as needed
+ ];
+
+ <!-- nested array -->
+  const products21 = [
+     {category:"News",subcategory:""}
+ ];
+ 
+ var totaldataName = [];
+ const num=[];
+ 
+ products.forEach(product => {
+
+     totaldataName.push(product.name);
+    
+ });
+
+ <!-- console.log(totaldataName); -->
+
+ var productDiv = [];
+ var produc = [];
+ var uldis = [];
+ var lidis = [];
+ const peril = [];
+ const itemsPerPage = products.length;
+ let currentPage = 1;
+ var er;
+
+ function renderProducts(page) {
+
+     document.getElementById('myUL').innerHTML = '';
+
+     const data = [];
+     const bred = [];
+     const dred = [];
+     
+     const start = (page - 1) * itemsPerPage;
+     const end = start + itemsPerPage;
+     const pageProducts = products.slice(start, end);
+
+     pageProducts.forEach(product => {
+         
+         data.push(product.name);
+         bred.push(product.breadcumb);
+         dred.push(product.description);
+         });
+   
+	 
+     for (var i = 0; i < data.length; i++) {
+
+         const conD = data[i];
+
+         lidis[i] = $('<li class="animals">' + '<a href="#" class="anse' + i + '">' + data[i] + '</a>'
+             + '<ol class="breadcrumb" style="background:none;padding:0;margin:0;font-size:15px;">'
+             + '<li>' + "Home" + '</li>' + '<li>' + bred[i] + '</li>' + '<li>'
+             + conD + '</li>' +
+
+
+             '</ol>' + '<p style="font-size:15px;margin-bottom:6px;padding:0;">' + dred[i] + '</p>' + '</li>');
+        
+             $('#myUL').append(lidis[i]);
+				<!-- $('#myUL2').append(lidis[i]); -->
+
+     }
+
+     renderPagination(page);
+ }
+
+ function renderPagination(currentPage) {
+     const paginationContainer = document.getElementById('pagination');
+     paginationContainer.innerHTML = '';
+
+     const totalPages = Math.ceil(products.length/ itemsPerPage);
+
+     const prevButton = document.createElement('button');
+     prevButton.textContent = '<';
+     prevButton.disabled = currentPage === 1;
+     if (currentPage === 1 ) {
+         prevButton.style.display = "none";
+     }
+
+
+     prevButton.addEventListener('click', () => {
+         if (currentPage > 1) {
+             currentPage--;
+             renderProducts(currentPage);
+         }
+     });
+     paginationContainer.appendChild(prevButton);
+
+     for (let i = 1; i <= totalPages; i++) {
+         const pageButton = document.createElement('button');
+         pageButton.textContent = i;
+         if (i === currentPage) {
+             pageButton.disabled = true;
+
+         }
+         pageButton.addEventListener('click', () => {
+             currentPage = i;
+             renderProducts(currentPage);
+			 
+         });
+         paginationContainer.appendChild(pageButton);
+     }
+
+     const nextButton = document.createElement('button');
+	
+     nextButton.textContent = '>';
+     nextButton.disabled = currentPage === totalPages;
+     if (currentPage === totalPages) {
+         nextButton.style.display = "none";
+     }
+
+     nextButton.addEventListener('click', () => {
+         if (currentPage < totalPages) {
+             currentPage++;
+             renderProducts(currentPage);
+			 
+         }
+     });
+     paginationContainer.appendChild(nextButton);
+ }
+ 
+ 
+ 
+ function renderData(page,s,k) {
+    
+	document.getElementById('data-view').innerHTML = ''; // Clear existing data
+    const d=[];
+    // Calculate start and end index for slicing the data array
+    const startIndex = (page - 1) * 3;
+    <!-- const endIndex = Math.min(startIndex + 3, s);  -->
+	
+	const endIndex = Math.min(startIndex + 3, s);
+
+    // Loop through the data slice and display items
+    for (let i = startIndex; i <endIndex; i++) {
+        <!-- const itemDiv = document.createElement('div'); -->
+		
+        <!-- itemDiv.className = 'item'; -->
+        <!-- itemDiv.textContent = k[i]; -->
+		
+       
+		
+		d[i] = $('<li class="animals2" style="list-style-type:none;">' + '<a href="#" class="anse2' + i + '">' + k[i] + '</a>'
+             + '<ol class="breadcrumb2" style="background:none;padding:0;margin:0;font-size:15px;">'
+             + '<li>' + "Home" + '</li>' + '<li>' + k[i] + '</li>' + '<li>'
+             + k[i] + '</li>' +
+
+             '</ol>' + '<p style="font-size:15px;margin-bottom:6px;padding:0;">' + k[i] + '</p>' + '</li>');
+        
+		 $("#data-view").append(d[i]);
+		
+    }
+	renderPagination2(page,s,k);
+}
+
+function renderPagination2(currentPage,s,k) {
+
+     const pagination = document.getElementById('pagination1');
+     pagination.innerHTML = ''; // Clear existing pagination
+
+     const totalPages = Math.ceil(s/ 3);
+
+   
+        const prevButton = document.createElement('button');
+        prevButton.textContent = '<';
+		
+		 prevButton.disabled = currentPage === 1;
+		 if (currentPage === 1 ) {
+			 prevButton.style.display = "none";
+		 }
+		
+		 prevButton.addEventListener('click', () => {
+         if (currentPage > 1) {
+             currentPage--;
+              renderData(currentPage,s,k);
+              
+         }
+		 
+		 });
+		 pagination.appendChild(prevButton);
+		
+		
+		 for (let i = 1; i <= totalPages; i++) {
+			 const pageButton = document.createElement('button');
+			 pageButton.textContent = i;
+			 if (i === currentPage) {
+				 pageButton.disabled = true;
+
+			 }
+			 
+			 pageButton.addEventListener('click', () => {
+				 currentPage = i;
+				  renderData(currentPage,s,k);
+				 
+			 });
+			 pagination.appendChild(pageButton);
+         }
+		
+      
+        
+		 
+		const nextButton = document.createElement('button');
+		
+		 nextButton.textContent = '>';
+		 nextButton.disabled = currentPage === totalPages;
+		 if (currentPage === totalPages||currentPage === 1) {
+			 nextButton.style.display = "none";
+		 }
+         
+		 nextButton.addEventListener('click', () => {
+			 if (currentPage < totalPages) {
+				 currentPage++;
+				  renderData(currentPage,s,k);
+				 
+			 }
+		 });
+		 pagination.appendChild(nextButton);
+		
+        <!-- prevButton.classList.toggle('active', i === currentPage); -->
+		
+        <!-- prevButton.addEventListener('click', function() { -->
+            <!-- currentPage = i; -->
+            <!-- renderData(currentPage,s,k); -->
+            <!-- renderPagination(currentPage,s,k); -->
+        <!-- }); -->
+        <!-- pagination.appendChild(prevButton); -->
+    }
+	
+	
+	
+
+ function myFunction() {
+
+     var input, filter, ul, li, a, i, txtValue,a1,paragraph=[],count=0,MatchedItemN=[];
+	 var m,k = [],u=1,counts = 1,textTosearch,pattern;
+	 
+	 let x = document.getElementsByClassName('animals');
+	 
+     input = document.getElementById("myInput");
+     filter = input.value.toUpperCase();
+    
+     for (i = 0; i < totaldataName.length; i++) {
+        
+         //true of false condition below
+         if (filter.includes(totaldataName[i].toUpperCase())) {
+		 
+             const z = i + 1;  // z represents start of similiar data among more from database
+			
+			 console.log("z=",z);
+             const zp=products.length-z;
+			 console.log("zp=",zp);
+             const y = Math.ceil(z / itemsPerPage);//y values show page number
+             
+             console.log("Total page Number is", y);
+             //builds pagination and shows searchable page and item
+             renderProducts(y);
+			 <!-- renderPagination(y); -->
+         }
+         else { $("#countSearch").val("");}
+     }
+	 
+     main.classList.add('active');
+     //that shows search item in the beginning of page
+     for (var i = 0; i < x.length; i++) {
+
+         a = x[i].getElementsByTagName("a")[0];
+         txtValue = a.textContent || a.innerText;
+         if (txtValue.toUpperCase().includes(filter)) {
+            
+             x[i].style.display = "";
+             const kk = document.querySelector(".anse" + i);
+             kk.style.color = "blue";
+             kk.style.backgroundColor = "none";
+
+             const searched = document.getElementById("myInput").value;
+
+             const closeicon = document.querySelector('.closeicon');
+             closeicon.style.visibility = "visible";
+			 
+			 
+        
+			 
+             if (searched == '') {
+                 //set the paragraph value to their default text
+                     a.innerHTML = a.textContent;
+                 const closeicon = document.querySelector('.closeicon');
+                 closeicon.style.visibility="hidden";
+				 
+				 main.classList.remove('active');
+				
+
+             }
+             
+             if (searched.length > 1) {
+                 
+                 textTosearch = searched;
+                 textTosearch = textTosearch.replace(/[.*+?^${}(|[\]\\]/g, "\\$&");
+                 pattern = new RegExp(textTosearch, "gi");
+                 a.innerHTML = a.textContent.replace(pattern, '<mark class="markRes' + i + '">' + textTosearch + '</mark>');
+
+                 MatchedItemN.push(txtValue);
+                 const mrk = document.querySelector(".markRes" + i);
+                 mrk.style.backgroundColor = "yellow";
+
+             }
+
+            
+         }
+         else {
+             x[i].style.display = "none";
+             
+         }
+
+
+     }
+    
+
+	console.log("Matched Items:",MatchedItemN);
+
+	 renderData(currentPage,MatchedItemN.length,MatchedItemN);
+	 renderPagination2(currentPage,MatchedItemN.length,MatchedItemN);
+	 
+	 
+	
+     for (var i = 1; i < 7; i++) {
+
+         const y = $('.test' + i).val().toUpperCase();
+         
+        
+         if (filter ==y ) {
+             
+             console.log("loop counter", i, y);
+            const k= document.querySelector('.test' + i);
+             
+             // k[i].classList.add('active');
+
+             k.style.backgroundColor = "inherit";
+             k.style.borderBottomStyle = "solid";
+             k.style.borderBottomColor = "blue";
+
+         }
+
+         else {
+
+            const k= document.querySelector('.test' + i);
+
+             k.style.backgroundColor = "inherit";
+             k.style.borderBottomStyle = "none";
+             k.style.borderBottomColor = "none";
+         }
+         
+     }
+     const formattedNumber = MatchedItemN.length.toLocaleString('en-US');
+     document.getElementById("countSearch").innerHTML = formattedNumber;
+     <!-- renderPagination(MatchedItemN); -->
+	 
+	 
+
+ }
+
+
+ const closeicon = document.querySelector('.closeicon');
+ const main=document.querySelector('.main');
+ 
+ closeicon.onclick = function () {
+     $("#myInput").val("");
+	  
+     const closeicon = document.querySelector('.closeicon');
+     closeicon.style.visibility = "hidden";
+	 
+
+     const searchinput = document.querySelector(".searchinput");
+     searchinput.classList.add("active");
+     searchinput.focus();
+	 
+	 <!-- main.classList.remove('active'); -->
+     <!-- myFunction(); -->
+ }
+
+
+<!-- menubar for max-width:768px; -->
+
+<!-- end -->
+
+const closebtn1 = document.querySelector('.closebtn1');
+const closebtn2 = document.querySelector('.closebtn2');
+const sidenav = document.querySelector('.sidenav');
+
+
+
+const menutoggle=document.querySelector('.menutoggle');
+const wrapper=document.querySelector('#wrapper');
+
+
+menutoggle.onclick=function(){
+
+    for(var i=1;i<5;i++){
+	 var x=document.querySelector('.dropbtnt'); 
+	 x.setAttribute('id','ctrdropbtnt'+i+'');
+	}
+	
+	
+	if(sidenav.classList.contains('active')){
+
+	sidenav.classList.remove('active');
+
+	}
+	else{
+	sidenav.classList.add('active');
+	}
+	$("#wrapper").toggleClass("toggled");
+	
+	
+}
+
+<!-- const menubart=document.querySelector('.menubart'); -->
+
+closebtn1.onclick=function(){
+	$("#wrapper").toggleClass("toggled");
+	sidenav.classList.add('active');
+	
+	
+}
+
+const navbart=document.querySelector('.navbart');
+
+closebtn2.onclick=function(){
+  if(navbart.classList.contains('active')){
+	  navbart.classList.add('active');
+	}
+		navbart.classList.remove('active');
+		<!-- location.reload(true); -->
+}
+
+
+<!-- $("#navbart-toggle").click(function(e) { -->
+	<!-- e.preventDefault(); -->
+	<!-- if(navbart.classList.contains('active')){ -->
+	  <!-- navbart.classList.remove('active'); -->
+	<!-- } -->
+		<!-- navbart.classList.add('active'); -->
+		
+		
+	<!-- }); -->
+</script>
+
+<script>
+ function mtfunction(x) {
+  
+  
+  var conq=1;
+  
+  const dropbtnt = document.getElementsByClassName("dropbtnt");
+  
+  
+  if (x.matches) { // If media query matches
+  
+        document.body.style.backgroundColor = "none";
+		
+    } 
+	
+	else {
+    document.body.style.backgroundColor = "white";
+	
+	  const navbart=document.querySelector('.navbart');
+	  
+	  if(navbart.classList.contains('active')){
+		   navbart.classList.remove('active');
+	  
+	  }
+	 
+	
+    }
+}
+ // Create a MediaQueryList object
+var x = window.matchMedia("(max-width: 768px)")
+
+// Call listener function at run time
+mtfunction(x);
+
+// Attach listener function on state changes
+x.addEventListener("change", function() {
+  mtfunction(x);
+});
+
+
+
+function matc(){
+
+var w1=["#ctrdropbtnt1","#ctrdropbtnt2","#ctrdropbtnt3","#ctrdropbtnt4"];
+
+	for(var i=1;i<w1.length+1;i++)(function(i){
+	
+	   $('#ctrdropbtnt'+i+'').on('click', function(event) {
+		event.stopPropagation();
+		
+		fun1($('#ctrdropbtnt'+i+'').val(),w1);
+		
+		});
+		
+	})(i);
+
+}
+
+function fun1(name,menu){
+	 
+	 <!-- var menu=["#submenu1","#submenu2","#submenu3"]; -->
+	 
+	 for(var i=0;i<menu.length;i++){
+	 
+	  if(menu[i].includes(name)){
+	     $(menu[i]).next('.dropdown-contentt').toggle();
+		 console.log("thanks");
+	  }
+	  
+	  else{
+	    
+		$(menu[i]).next('.dropdown-contentt').hide(); 
+	  }
+	  
+	 }
+	
+	}	
+	
+	
+</script>
+
+
+<script>
+function megamenu(){
+var x="";
+
+const navbart=document.querySelector('.navbart');
+const rowtable=document.querySelector('#rowtable');
+
+const dropdowncontent=document.querySelector('.dropdown-contentt');
+
+const product=[{name:"ODI",data:["BAN","AUS","SRI"]},
+{name:"TEST",data:["l1","l2","l3"]},
+{name:"T20",data:["l1","l2","l3"]}
+];
+
+const dropdownt = document.createElement('div');
+dropdownt.classList.add('dropdownt');
+dropdownt.setAttribute("id","megaMenuId");
+
+
+const dropbtnt = document.createElement('button');
+dropbtnt.classList.add('dropbtnt');
+dropbtnt.textContent="Multimenu";
+dropbtnt.setAttribute("style","border:none;outline:none;");
+dropbtnt.setAttribute("id","ctrdropbtnt4");
+dropbtnt.setAttribute("value","ctrdropbtnt4");
+
+const dropdowncontentt = document.createElement('div');
+dropdowncontentt.classList.add('dropdown-contentt');
+
+product.forEach(pro=>{
+const column = document.createElement('div');
+column.classList.add('column');
+
+const h5=document.createElement("h5");
+h5.textContent=pro.name;
+column.appendChild(h5);
+
+pro.data.forEach(da=>{
+const a=document.createElement("a");
+a.href="#";
+a.textContent=da;
+a.onclick = function() {
+this.parentElement.classList.toggle();
+};
+column.appendChild(a);
+
+});
+
+dropdowncontentt.appendChild(column);
+
+dropdownt.appendChild(dropbtnt);
+dropdownt.appendChild(dropdowncontentt);
+navbart.append(dropdownt);
+});
+}
+megamenu();
+
+</script>
+
+
+
+<!-- header dropdown menu -->
+<script>
+
+
+const HeaderDropdown=document.querySelector('#HeaderDropdown');
+
+<!-- nested array and object -->
+const tpr1 ={ 
+name:"boss", 
+postpro:
+		[
+		{name:"News all",data:["All Stories","Blog","Topics"]},
+
+		{name:"Series",data:["Bangladesh tour","India Tour","Africa"]},
+		{name:"Test",data:["l1","l2","l3"]}
+		],
+		
+product2a:[
+		{name:"ODI",data:["BAN","AUS","SRI"]},
+		{name:"TEST",data:["l1","l2","l3"]},
+		{name:"T20",data:["l1","l2","l3"]}
+		],
+
+};
+var i=1;
+tpr1.postpro.forEach(pro=>{
+
+const dropdownt = document.createElement('div');
+dropdownt.classList.add('dropdownt');
+
+const dropbtnt = document.createElement('button');
+dropbtnt.classList.add('dropbtnt');
+dropbtnt.textContent=pro.name;
+dropbtnt.setAttribute("style","border:none;outline:none;");
+dropbtnt.setAttribute('id','dropbtnt'+i+'');
+
+const span=document.createElement('span');
+span.classList.add('caret');
+span.setAttribute('id','caret'+i+'');
+dropbtnt.appendChild(span);
+i+=1;
+
+const dropdowncontent = document.createElement('div');
+dropdowncontent.classList.add('dropdown-contentt');
+
+const columnnewst = document.createElement('div');
+columnnewst.classList.add('column-newst');
+
+
+
+pro.data.forEach(da=>{
+const a=document.createElement("a");
+a.href="#";
+a.textContent=da;
+a.onclick = function() {
+this.parentElement.classList.toggle();
+};
+console.log(columnnewst.appendChild(a));
+
+});
+dropdowncontent.appendChild(columnnewst);
+
+dropdownt.appendChild(dropbtnt);
+
+dropdownt.appendChild(dropdowncontent);
+HeaderDropdown.append(dropdownt);
+
+});
+
+function fu0(){
+
+const navbart=document.querySelector('.navbart');
+const rowtable=document.querySelector('#rowtable');
+
+const dropdowncontent=document.querySelector('.dropdown-contentt');
+
+<!-- const product=[{name:"ODI",data:["BAN","AUS","SRI"]}, -->
+<!-- {name:"TEST",data:["l1","l2","l3"]}, -->
+<!-- {name:"T20",data:["l1","l2","l3"]} -->
+<!-- ]; -->
+
+const dropdownt = document.createElement('div');
+dropdownt.classList.add('dropdownt');
+dropdownt.setAttribute("id","megaMenuId");
+
+
+const dropbtnt = document.createElement('button');
+dropbtnt.classList.add('dropbtnt');
+dropbtnt.textContent="Multimenu";
+dropbtnt.setAttribute("style","border:none;outline:none;");
+dropbtnt.setAttribute("id","dropbtnt4");
+dropbtnt.setAttribute("value","ctrdropbtnt4");
+
+const span=document.createElement('span');
+span.classList.add('caret');
+span.setAttribute('id','caret4');
+dropbtnt.appendChild(span);
+
+const dropdowncontentt = document.createElement('div');
+dropdowncontentt.classList.add('dropdown-contentt');
+
+tpr1.product2a.forEach(pro=>{
+const column = document.createElement('div');
+column.classList.add('column');
+
+const h5=document.createElement("h5");
+h5.textContent=pro.name;
+column.appendChild(h5);
+
+pro.data.forEach(da=>{
+const a=document.createElement("a");
+a.href="#";
+a.textContent=da;
+a.onclick = function() {
+this.parentElement.classList.toggle();
+};
+column.appendChild(a);
+
+});
+
+dropdowncontentt.appendChild(column);
+
+dropdownt.appendChild(dropbtnt);
+dropdownt.appendChild(dropdowncontentt);
+navbart.append(dropdownt);
+});
+}
+fu0();
+
+
+
+</script>
+
+
+
+<!-- menu toggle at width:746px -->
+<script>
+
+function menubarts(){
+
+const menubart=document.querySelector('#menubart');
+const megaMenuId=document.querySelector('#megaMenuId');
+
+const postpro=[{id:"ctrdropbtnt1",value:"ctrdropbtnt1",name:"News",data:["All Stories","Blog","Topics"]},
+{id:"ctrdropbtnt2",value:"ctrdropbtnt2",name:"Series",data:["Bangladesh tour","India Tour","Africa"]},
+{id:"ctrdropbtnt3",value:"ctrdropbtnt3",name:"Test",data:["l1","l2","l3"]}
+];
+
+postpro.forEach(pro=>{
+
+const dropdownt = document.createElement('div');
+dropdownt.classList.add('dropdownt');
+
+
+const dropbtnt = document.createElement('button');
+dropbtnt.classList.add('dropbtnt');
+dropbtnt.textContent=pro.name;
+dropbtnt.setAttribute("style","border:none;outline:none;");
+dropbtnt.setAttribute("id",pro.id);
+dropbtnt.setAttribute("value",pro.value);
+
+
+const dropdowncontent = document.createElement('div');
+dropdowncontent.classList.add('dropdown-contentt');
+
+const columnnewst = document.createElement('div');
+columnnewst.classList.add('column-newst');
+
+
+
+pro.data.forEach(da=>{
+const a=document.createElement("a");
+a.href="#";
+a.textContent=da;
+a.onclick = function() {
+this.parentElement.classList.toggle();
+};
+console.log(columnnewst.appendChild(a));
+
+});
+dropdowncontent.appendChild(columnnewst);
+
+dropdownt.appendChild(dropbtnt);
+
+dropdownt.appendChild(dropdowncontent);
+menubart.append(dropdownt);
+menubart.append(megaMenuId);
+
+});
+
+}
+
+$("#navbart-toggle").click(function(e) {
+	e.preventDefault();
+	const menubart=document.querySelector('#menubart');
+	
+	if(menubart.classList.contains('active')){
+	  menubart.classList.remove('active');
+	  }
+	 else{
+		menubart.classList.add('active');
+		}
+	});
+	
+menubarts();
+matc();	
+
+const closebtn3=document.querySelector('.closebtn3');
+closebtn3.onclick=function(){
+
+  if(menubart.classList.contains('active')){
+	
+	  menubart.classList.remove('active');
+	  }
+ else{
+	menubart.classList.remove('active');
+	}
+		
+}
+
+
+
+</script>
+
+<!-- caret rotate for header Dropdown -->
+
+<script>
+
+$(document).ready(function(){
+
+
+	var w1=["#caret1","#caret2","#caret3","#caret4"];
+<!-- You'll need to create a temporary scope to preserve i's value -->
+	for(var i=1;i<w1.length+1;i++)(function(i){
+	   $('#dropbtnt'+i+'').on('mouseover', function(event) {
+		  event.stopPropagation();
+		  <!-- fun1($('#submenu'+i+'').val(),wo); -->
+		
+		  fun2(i-1,w1);
+		 
+		}); 
+		
+	})(i); 
+	
+
+function fun2(name,menu){
+	 
+	 <!-- var menu=["#caret1","#caret2","#caret3"]; -->
+	 
+	 for(var i=0;i<menu.length;i++){
+	 
+	     if(i==name){
+		  
+			console.log("ok");
+			$(menu[i]).toggleClass('act');
+		 }
+		 else{
+		    $(menu[i]).removeClass('act');
+		 }
+		
+	 }
+	
+	}
+	
+	});
+</script>
+
+<!-- sidenavigation and dropdown Menu -->
+
+<script>
+
+var i=1;
+$(document).ready(function(){
+const sidenav=document.querySelector('#sidenav');
+
+<!-- nested array and object -->
+const tpr1 ={ 
+name:"boss", 
+postpro:
+		[
+		{name:"HR",data:["All Stories","Blog","Topics"]},
+
+		{name:"Payrol",data:["Bangladesh tour","India Tour","Africa"]},
+		{name:"Others",data:["l1","l2","l3"]}
+		],
+		
+product2a:[
+		{name:"ODI",data:["BAN","AUS","SRI"]},
+		{name:"TEST",data:["l1","l2","l3"]},
+		{name:"T20",data:["l1","l2","l3"]}
+		],
+
+};
+
+tpr1.postpro.forEach(pro=>{
+
+<!-- const dropdownt = document.createElement('div'); -->
+<!-- dropdownt.classList.add('dropdownt'); -->
+
+const dropbtnt = document.createElement('button');
+dropbtnt.classList.add('dropdown-btn');
+dropbtnt.textContent=pro.name;
+dropbtnt.setAttribute("style","border:none;outline:none;");
+dropbtnt.setAttribute('id','dropdownbtn'+i+'');
+dropbtnt.setAttribute('value','dropdownbtn'+i+'');
+
+const span=document.createElement('span');
+span.classList.add('caretN');
+
+span.setAttribute('id','caretN'+i+'');
+dropbtnt.appendChild(span);
+i+=1;
+
+const dropdowncontent = document.createElement('div');
+dropdowncontent.classList.add('dropdown-container');
+
+<!-- const columnnewst = document.createElement('div'); -->
+<!-- columnnewst.classList.add('column-newst'); -->
+
+pro.data.forEach(da=>{
+const a=document.createElement("a");
+a.href="#";
+a.textContent=da;
+<!-- a.onclick = function() { -->
+<!-- this.parentElement.classList.toggle(); -->
+<!-- }; -->
+console.log(dropdowncontent.appendChild(a));
+
+});
+sidenav.appendChild(dropbtnt);
+sidenav.appendChild(dropdowncontent);
+
+
+});
+
+});
+
+<!-- caret rotate -->
+
+$(document).ready(function(){
+
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var wo=["#dropdownbtn1","#dropdownbtn2","#dropdownbtn3"];
+
+	var w1=["#caretN1","#caretN2","#caretN3"];
+<!-- You'll need to create a temporary scope to preserve i's value -->
+	for(var i=1;i<w1.length+1;i++)(function(i){
+	   $('#dropdownbtn'+i+'').on('click', function(event) {
+		  event.stopPropagation();
+
+		  fun2(i-1,w1);
+		  fun($('#dropdownbtn'+i+'').val(),wo);
+		  
+		}); 
+		
+	})(i); 
+	
+
+function fun2(name,menu){
+	 
+	 <!-- var menu=["#caret1","#caret2","#caret3"]; -->
+	 
+	 for(var i=0;i<menu.length;i++){
+	 
+	     if(i==name){
+		  
+			console.log("ok");
+			$(menu[i]).toggleClass('actN');
+		 }
+		 else{
+		    $(menu[i]).removeClass('actN');
+		 }
+		
+	 }
+	
+	}
+	
+function fun(name,menu){
+	 
+	 <!-- var menu=["#submenu1","#submenu2","#submenu3"]; -->
+	 
+	 for(var i=0;i<menu.length;i++){
+	 
+	  if(menu[i].includes(name)){
+	     $(menu[i]).next('.dropdown-container').toggle();
+		 console.log("thanks");
+	  }
+	  
+	  else{
+	    
+		$(menu[i]).next('.dropdown-container').hide(); 
+	  }
+	  
+	 }
+	
+	}	
+	
+	<!-- const searcbds=document.querySelector('#searcbds'); -->
+	<!-- const adminbel=document.querySelector('#adminbel'); -->
+			
+
+	
+	const searchicon3=document.querySelector('#searchicon3');
+	
+	const searchbox=document.querySelector('.searchbox');
+	
+	const closeicon3=document.querySelector('.closeicon3');
+	
+	$("#searchicon3").click(function(e) {
+			e.preventDefault();
+			
+			if(searchbox.classList.contains('active')){
+			  searchbox.classList.remove('active');
+			  main.classList.remove('active');
+			   
+			}
+			else{
+				searchbox.classList.add('active');  
+			}
+			closeicon3.classList.add('active');
+			
+			<!-- main.classList.add('active'); -->
+			
+			searchicon3.classList.add('active');
+			
+			
+			<!-- searcbds.classList.add('active'); -->
+			<!-- adminbel.classList.add('active'); -->
+			
+		});
+			
+		$("#closeicon3").click(function(e) {
+			e.preventDefault();
+			
+			e.preventDefault();
+			
+			searchbox.classList.remove('active');
+			
+			searchicon3.classList.remove('active');
+			
+			closeicon3.classList.remove('active');
+			main.classList.remove('active');
+			$("#myInput").val("");
+			
+			
+		});
+		
+		$("#closebtn4").click(function(e) {
+			e.preventDefault();
+			
+			searchbox.classList.remove('active');
+			
+			searchicon3.classList.remove('active');
+			
+			closeicon3.classList.remove('active');
+			main.classList.remove('active');
+			$("#myInput").val("");
+			
+			<!-- searcbds.classList.add('active'); -->
+			<!-- adminbel.classList.add('active'); -->
+			
+		});
+	
+	
+	
+	});
+
+</script>
+
+<script>
+$(document).ready(function(){
+const body=document.querySelector('body');
+const m = document.querySelector('.sidenav');
+
+$(".darkLight2").on("click",function(){
+
+  if(body.classList.contains('active'))
+   {
+	body.classList.remove('active');
+	m.style.backgroundColor="white";
+	m.style.color="black";
+	$('.dropdown-btn').attr("style","color:black;border:none;outline:none;");
+	$('.caretN').attr("style","color:white;border-color:black transparent transparent transparent;");
+	
+	$('.caret').attr("style","color:white;border-color:black transparent transparent transparent;");
+	
+	$('.home').attr("style","color:black;");
+	$('.moik').attr("style","color:black;");
+	$('.closebtn1').attr("style","color:black;float:right;border:none;outline:none;");
+	
+    $('.header').attr("style","color:white;");
+	
+	$('.dropbtnt').attr("style","color:black;");
+	$('.menutoggle').attr("style","color:black;border:none;outline:none;");
+	$('.darkLight').attr("style","color:black;border:2px solid black;outline:none;");
+	$('.darkLight1').attr("style","color:black;border:2px solid black;outline:none;");
+	
+	$('.searchinput').attr("style","color:black;border:none;outline:none;background-color:none;");
+	$('.main').attr("style","color:black;border:none;outline:none;background-image: linear-gradient(to bottom, white, #e7feff);");
+    for(var i=1;i<7;i++){
+		$('.test'+i+'').attr("style","color:black;border:none;outline:none;background:none;");
+	}
+	for(var i=0;i<19;i++){
+		$('.anse'+i+'').attr("style","color:black;border:none;outline:none;background-color:none;");
+	}
+	<!-- $('.pagination button:disabled').attr("style","color:black;border:none;outline:none;background-color:none;"); -->
+	
+	<!-- $('.pagination1 button:disabled').attr("style","color:black;border:none;outline:none;background-color:none;"); -->
+	$('.searchinput').attr("style","color:black;border:none;outline:none;background:none;");	
+	
+	
+	}
+	
+	else{
+	body.classList.add('active');
+    
+	$('.dropdown-btn').attr("style","color:white;border:none;outline:none;");
+	
+	$('.caretN').attr("style","color:white;border-color:white transparent transparent transparent;");
+	
+	$('.caret').attr("style","color:white;border-color:white transparent transparent transparent;");
+	
+	$('.home').attr("style","color:white;background-color:black;");
+	$('.moik').attr("style","color:white;background-color:black;margin-left:3px;");
+	$('.closebtn1').attr("style","color:white;background-color:black;float:right;border:none;outline:none;");
+	
+	$('.header').attr("style","background-image:linear-gradient(to  bottom, black, black);");
+
+	$('.dropbtnt').attr("style","color:white;border:none;outline:none;");
+	
+	$('.menutoggle').attr("style","color:white;border:none;outline:none;");
+	$('.darkLight').attr("style","color:white;border:2px solid white;outline:none;");
+	$('.darkLight1').attr("style","color:white;border:2px solid white;outline:none;background-color:white;");
+	
+	
+	
+	
+	$('.searchinput').attr("style","color:white;border:none;outline:none;background:none;");	
+	
+	
+	
+	
+	<!-- $('.pagination button:disabled').attr("style","color:white;border:none;outline:none;background-color:green;"); -->
+	
+	<!-- $('.pagination1 button:disabled').attr("style","color:white;border:none;outline:none;background-color:green;"); -->
+	
+	
+    for(var i=1;i<7;i++){
+		$('.test'+i+'').attr("style","color:white;border:none;outline:none;background:black;");
+	}
+	for(var i=0;i<19;i++){
+		$('.anse'+i+'').attr("style","color:white;border:none;outline:none;background-color:black;");
+	}
+
+	
+	$('.main').attr("style","color:white;outline:none;background-image: linear-gradient(to bottom, black, black);");
+	
+	m.style.backgroundColor="black";
+	m.style.color="white";
+    }
+});
+ 
+
+});
+</script>
+
+
