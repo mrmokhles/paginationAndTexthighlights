@@ -50,8 +50,9 @@ margin-left: 0;
 }
 
  /* Navigation bar / Top horizontal navigation bar */
-.header{width:100%;height:46px;top:0;bottom:0;left:0;color:white;
- 
+.header{
+ width:100%;height:46px;top:0;left:0;color:white;
+ position: relative;
  box-shadow:0px 6px 30px -17px rgba(0,0,0,0.3);
 
  font-family: "Arial", sans-serif;
@@ -122,7 +123,7 @@ margin-left: 0;
 .main{font-size: 15px; 
   padding: 0px 10px;margin-top:15px; background-image: linear-gradient(to bottom, white, #e7feff);min-width:500px;max-width:500px;box-shadow:0px 6px  30px -17px rgba(0,0,0,0.2); padding-left:12px 8px;}
 
-.menu{float:left;overflow:hidden;width:100%;position:absolute;top:46px;display:block;}
+.menu{float:left;overflow:hidden;width:100%;position:absolute;top:30px;display:block;}
 
 .main{display:none;}
  .main.active{display:block;}
@@ -635,13 +636,21 @@ background-image:linear-gradient(to  right, #121212,#121212);
             text-decoration: underline;
         }
 
-
-
-
 .closebtn4:hover{
  background-color:green;
  color:white;
 }
+
+.sticky {
+  left:200px;
+  right:0;
+  top:0;
+  position:fixed;
+  width: 80%;
+  z-index:1000;/* Ensure it stays above other content */
+}
+
+
 </style>
 
 <body>
@@ -674,7 +683,7 @@ background-image:linear-gradient(to  right, #121212,#121212);
    <div id="page-content-wrapper1">
  
      <div class="row">
-	   <div class="header">
+	   <div class="header" id="hedheader">
 	      <button type="submit" class="menutoggle" id="menutoggle" style="border:none;outline:none;color:black;">&#9776;</button>
 	      
 		  <button type="submit" id="navbart-toggle" class="navbarttoggle" style="border:none;outline:none;">Menu <i class="fa fa-caret-down"></i></button>
@@ -826,6 +835,17 @@ background-image:linear-gradient(to  right, #121212,#121212);
 	   </div>
 	   
 	   
+	 </div>
+	 
+	 
+	 <div class="row" style="height:1000px;" id="bodyds">
+	    <div class="col-md-6 col-sm-12 mt-5">The quick brown fox jumps over the lazy dog.</div>
+		<div class="col-md-6 col-sm-12 mt-5">The quick brown fox jumps over the lazy dog.</div>
+		
+		<div class="col-md-6 col-sm-12">The quick brown fox jumps over the lazy dog.</div>
+		<div class="col-md-6 col-sm-12">The quick brown fox jumps over the lazy dog.</div>
+		
+	 
 	 </div>
 	 
 	</div>
@@ -1108,12 +1128,12 @@ function renderPagination2(currentPage,s,k) {
 		 
              const z = i + 1;  // z represents start of similiar data among more from database
 			
-			 console.log("z=",z);
+			 <!-- console.log("z=",z); -->
              const zp=products.length-z;
-			 console.log("zp=",zp);
+			 <!-- console.log("zp=",zp); -->
              const y = Math.ceil(z / itemsPerPage);//y values show page number
              
-             console.log("Total page Number is", y);
+             <!-- console.log("Total page Number is", y); -->
              //builds pagination and shows searchable page and item
              renderProducts(y);
 			 <!-- renderPagination(y); -->
@@ -1177,7 +1197,7 @@ function renderPagination2(currentPage,s,k) {
      }
     
 
-	console.log("Matched Items:",MatchedItemN);
+	<!-- console.log("Matched Items:",MatchedItemN); -->
 
 	 renderData(currentPage,MatchedItemN.length,MatchedItemN);
 	 renderPagination2(currentPage,MatchedItemN.length,MatchedItemN);
@@ -1254,35 +1274,35 @@ const menutoggle=document.querySelector('.menutoggle');
 const wrapper=document.querySelector('#wrapper');
 
 
-menutoggle.onclick=function(){
+<!-- menutoggle.onclick=function(){ -->
 
-    for(var i=1;i<5;i++){
-	 var x=document.querySelector('.dropbtnt'); 
-	 x.setAttribute('id','ctrdropbtnt'+i+'');
-	}
+    <!-- for(var i=1;i<5;i++){ -->
+	 <!-- var x=document.querySelector('.dropbtnt');  -->
+	 <!-- x.setAttribute('id','ctrdropbtnt'+i+''); -->
+	<!-- } -->
 	
 	
-	if(sidenav.classList.contains('active')){
+	<!-- if(sidenav.classList.contains('active')){ -->
 
-	sidenav.classList.remove('active');
+	<!-- sidenav.classList.remove('active'); -->
 
-	}
-	else{
-	sidenav.classList.add('active');
-	}
-	$("#wrapper").toggleClass("toggled");
+	<!-- } -->
+	<!-- else{ -->
+	<!-- sidenav.classList.add('active'); -->
+	<!-- } -->
+	<!-- $("#wrapper").toggleClass("toggled"); -->
 	
 	
-}
+<!-- } -->
 
 <!-- const menubart=document.querySelector('.menubart'); -->
 
-closebtn1.onclick=function(){
-	$("#wrapper").toggleClass("toggled");
-	sidenav.classList.add('active');
+<!-- closebtn1.onclick=function(){ -->
+	<!-- $("#wrapper").toggleClass("toggled"); -->
+	<!-- sidenav.classList.add('active'); -->
 	
 	
-}
+<!-- } -->
 
 const navbart=document.querySelector('.navbart');
 
@@ -1372,7 +1392,7 @@ function fun1(name,menu){
 	 
 	  if(menu[i].includes(name)){
 	     $(menu[i]).next('.dropdown-contentt').toggle();
-		 console.log("thanks");
+		 <!-- console.log("thanks"); -->
 	  }
 	  
 	  else{
@@ -1506,7 +1526,7 @@ a.textContent=da;
 a.onclick = function() {
 this.parentElement.classList.toggle();
 };
-console.log(columnnewst.appendChild(a));
+columnnewst.appendChild(a);
 
 });
 dropdowncontent.appendChild(columnnewst);
@@ -1626,7 +1646,7 @@ a.textContent=da;
 a.onclick = function() {
 this.parentElement.classList.toggle();
 };
-console.log(columnnewst.appendChild(a));
+columnnewst.appendChild(a);
 
 });
 dropdowncontent.appendChild(columnnewst);
@@ -1702,7 +1722,7 @@ function fun2(name,menu){
 	 
 	     if(i==name){
 		  
-			console.log("ok");
+			<!-- console.log("ok"); -->
 			$(menu[i]).toggleClass('act');
 		 }
 		 else{
@@ -1775,7 +1795,7 @@ a.textContent=da;
 <!-- a.onclick = function() { -->
 <!-- this.parentElement.classList.toggle(); -->
 <!-- }; -->
-console.log(dropdowncontent.appendChild(a));
+dropdowncontent.appendChild(a);
 
 });
 sidenav.appendChild(dropbtnt);
@@ -1815,7 +1835,7 @@ function fun2(name,menu){
 	 
 	     if(i==name){
 		  
-			console.log("ok");
+			<!-- console.log("ok"); -->
 			$(menu[i]).toggleClass('actN');
 		 }
 		 else{
@@ -1918,6 +1938,7 @@ function fun(name,menu){
 
 </script>
 
+
 <script>
 $(document).ready(function(){
 const body=document.querySelector('body');
@@ -2013,6 +2034,98 @@ $(".darkLight2").on("click",function(){
  
 
 });
+</script>
+
+
+<script>
+window.onscroll = function() {yFunction()};
+
+var hedheader = document.querySelector("#hedheader");
+var sticky = hedheader.offsetTop;
+
+
+function yFunction() {
+  if (window.pageYOffset> sticky) {
+    hedheader.classList.add("sticky");
+	$("#searchBar").attr("style","position:fixed;z-index:1000;top:30px;");
+    if(sidenav.classList.contains('active')){
+
+		sidenav.classList.remove('active');
+        
+		}
+		
+  } 
+  else {
+  
+    hedheader.classList.remove("sticky");
+	$("#searchBar").attr("style","position:relative;z-index:1000;");
+	$("#bodyds").attr("style","margin-left:0px;height:1000px;");
+	
+	
+  } 
+}
+
+
+
+
+menutoggle.onclick=function(){
+    
+	 if (window.pageYOffset> sticky) {
+	    $("#sidebar-wrapper").attr("style","display:block;");
+		$("#wrapper").removeClass("toggled");
+		
+		if(sidenav.classList.contains('active')){
+
+		sidenav.classList.remove('active');
+        
+		}
+		else{
+		sidenav.classList.add('active');
+		}
+		
+	 }
+	 else{
+	     $("#sidebar-wrapper").attr("style","display:block;");
+		for(var i=1;i<5;i++){
+		 var x=document.querySelector('.dropbtnt'); 
+		 x.setAttribute('id','ctrdropbtnt'+i+'');
+		}
+		
+		
+		if(sidenav.classList.contains('active')){
+
+		sidenav.classList.remove('active');
+
+		}
+		else{
+		sidenav.classList.add('active');
+		}
+		$("#wrapper").toggleClass("toggled");
+	 }
+	
+    }
+	closebtn1.onclick=function(){
+	
+	 if (window.pageYOffset> sticky) {
+	    $("#sidebar-wrapper").attr("style","display:none;");
+		$("#wrapper").removeClass("toggled");
+		if(sidenav.classList.contains('active')){
+
+		sidenav.classList.remove('active');
+
+		}
+		sidenav.classList.add('active');
+		
+	    }
+		
+	 else{
+	    $("#sidebar-wrapper").attr("style","display:block;");
+		$("#wrapper").toggleClass("toggled");
+		sidenav.classList.add('active');
+	    }
+	
+    }
+	
 </script>
 
 
